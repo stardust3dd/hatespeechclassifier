@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Hate Speech Classifier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <div class="jumbotron jumbotron-fluid" style="background-color: #0087ff;">
+    <div class="container text-center">
+      <h1 class="display-4" style="font-family: 'Crete Round', serif; color: white;">Hate Speech Classifier</h1>      
+    </div>
+  </div>
+
+  <br><br><br><br>
+
+  <div class="container">
+    <form action="{{ url_for('classification')}}" method="post">
+      <div class="input-group mb-3">
+        <div class="row col-12">
+          <input type="text" class="form-control" name="tweet" placeholder="Insert tweet here" aria-label="Insert tweet here" aria-describedby="basic-addon2" required="required">
+        </div>        
+        <br><br><br><br>        
+        <div class="container row col-12">
+          <div class="col-5"></div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary btn-block btn-large">
+              <h4 style="font-family: 'Crete Round', serif;">Classify now</h4>
+            </button>
+          </div>
+          <div class="col-5"></div>                  
+        </div>         
+      </div>
+    </form>
+  </div>
+
+  <br><br>
+
+  <div class="container">
+    <div class="alert alert-primary" role="alert">
+      <h2 class="display-6" style="font-family: 'Crete Round', serif;">
+        {{ classification_text }}
+      </h2>
+    </div>  
+  </div> 
+
+</body>
+</html>
